@@ -138,6 +138,7 @@ func dumpMakeVars(ctx Context, config Config, goals, vars []string, write_soong_
 var BannerVars = []string{
 	"PLATFORM_VERSION_CODENAME",
 	"PLATFORM_VERSION",
+	"COLT_VERSION",
 	"TARGET_PRODUCT",
 	"TARGET_BUILD_VARIANT",
 	"TARGET_BUILD_TYPE",
@@ -169,13 +170,56 @@ var BannerVars = []string{
 func Banner(make_vars map[string]string) string {
 	b := &bytes.Buffer{}
 
-	fmt.Fprintln(b, "============================================")
-	for _, name := range BannerVars {
-		if make_vars[name] != "" {
-			fmt.Fprintf(b, "%s=%s\n", name, make_vars[name])
-		}
-	}
-	fmt.Fprint(b, "============================================")
+	fmt.Fprintln(b, "**************************************************")
+	fmt.Fprintln(b, "**************************************************")
+	fmt.Fprintln(b, "**		   11100000000011               **")
+	fmt.Fprintln(b, "**            1000000000000000000001            **")
+	fmt.Fprintln(b, "**         10000001            10000001         **")
+	fmt.Fprintln(b, "**       100001      11111111      100001       **")
+	fmt.Fprintln(b, "**      00001   100000000000000001   10000      **")
+	fmt.Fprintln(b, "**     0001   0000000000000000000000   1000     **")
+	fmt.Fprintln(b, "**    000   00000000000000000000000000   000    **")
+	fmt.Fprintln(b, "**   000  100000001            000000001  000   **")
+	fmt.Fprintln(b, "**  100  1000001               0000000001  001  **")
+	fmt.Fprintln(b, "**  001  00001       1110111  00000000000  001  **")
+	fmt.Fprintln(b, "**  00  00001     100000000000000000000000  00  **")
+	fmt.Fprintln(b, "**  00  0001     0000000000000000000000000  00  **")
+	fmt.Fprintln(b, "**  10  000     00000000000000000000000000  01  **")
+	fmt.Fprintln(b, "**   01 000     00000000000000000000000001 10   **")
+	fmt.Fprintln(b, "**   10  00     0000000000000000000000000  01   **")
+	fmt.Fprintln(b, "**    11 10     1000000000000000010000001 11    **")
+	fmt.Fprintln(b, "**        10     1000000000000001    001        **")
+	fmt.Fprintln(b, "**         11      000000000001      0          **")
+	fmt.Fprintln(b, "**                   1111111        1           **")
+	fmt.Fprintln(b, "**		        			**")
+	fmt.Fprintln(b, "**************************************************")
+	fmt.Fprintln(b, "**************************************************")
+	fmt.Fprintln(b, "**************************************************")
+	fmt.Fprintln(b, "*    Welcome to ColtOS::Building Envoirnment:)   *")
+	fmt.Fprintln(b, "*    -----------------------------------------   *")
+	fmt.Fprintln(b, "**************************************************")
+	fmt.Fprintf(b, "%s=%s\n", "COLT_VERSION", make_vars["COLT_VERSION"])
+	fmt.Fprintf(b, "%s=%s\n", "PLATFORM_VERSION_CODENAME", make_vars["PLATFORM_VERSION_CODENAME"])
+	fmt.Fprintf(b, "%s=%s\n", "PLATFORM_VERSION", make_vars["PLATFORM_VERSION"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_PRODUCT", make_vars["TARGET_PRODUCT"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_BUILD_VARIANT", make_vars["TARGET_BUILD_VARIANT"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_BUILD_TYPE", make_vars["TARGET_BUILD_TYPE"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_ARCH", make_vars["TARGET_ARCH"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_ARCH_VARIANT", make_vars["TARGET_ARCH_VARIANT"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_CPU_VARIANT", make_vars["TARGET_CPU_VARIANT"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_2ND_ARCH", make_vars["TARGET_2ND_ARCH"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_2ND_ARCH_VARIANT", make_vars["TARGET_2ND_ARCH_VARIANT"])
+	fmt.Fprintf(b, "%s=%s\n", "TARGET_2ND_CPU_VARIANT", make_vars["TARGET_2ND_CPU_VARIANT"])
+	fmt.Fprintf(b, "%s=%s\n", "BUILD_ID", make_vars["BUILD_ID"])
+	fmt.Fprintf(b, "%s=%s\n", "OUT_DIR", make_vars["OUT_DIR"])
+	fmt.Fprintf(b, "%s=%s\n", "HOST_ARCH", make_vars["HOST_ARCH"])
+	fmt.Fprintf(b, "%s=%s\n", "HOST_2ND_ARCH", make_vars["HOST_2ND_ARCH"])
+	fmt.Fprintf(b, "%s=%s\n", "HOST_OS", make_vars["HOST_OS"])
+	fmt.Fprintf(b, "%s=%s\n", "HOST_OS_EXTRA", make_vars["HOST_OS_EXTRA"])
+	fmt.Fprintf(b, "%s=%s\n", "HOST_CROSS_OS", make_vars["HOST_CROSS_OS"])
+	fmt.Fprintf(b, "%s=%s\n", "HOST_CROSS_ARCH", make_vars["HOST_CROSS_ARCH"])
+	fmt.Fprintf(b, "%s=%s\n", "HOST_CROSS_2ND_ARCH", make_vars["HOST_CROSS_2ND_ARCH"])
+	fmt.Fprintln(b, "=========================================================================")
 
 	return b.String()
 }
